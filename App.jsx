@@ -4,6 +4,7 @@ import WindowSize from './WindowSize'
 import ThemeToggle from './ThemeToggle'
 import { useState } from 'react'
 
+import PostList from './PostList' 
 function App() {
   const [userId, setUserId] = useState(1)
 
@@ -11,9 +12,10 @@ function App() {
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h1>Week 9 - Task 17.1: useEffect Hook</h1>
       
+      <PostList /> 
       <section>
         <h2>Exercise 1: Understanding useEffect</h2>
-        <Counter />
+    
       </section>
 
       <hr />
