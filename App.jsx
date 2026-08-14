@@ -1,40 +1,22 @@
-import Counter from './Counter'
-import UserProfile from './UserProfile'
-import WindowSize from './WindowSize'
-import ThemeToggle from './ThemeToggle'
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Posts from './pages/Posts'
+import About from './pages/About'
+import PostDetail from './pages/PostDetail'
+import NotFound from './pages/NotFound'
 
-import PostList from './PostList' 
 function App() {
-  const [userId, setUserId] = useState(1)
-
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h1>Week 9 - Task 17.1: useEffect Hook</h1>
-      <PostList /> 
-      <section>
-        <h2>Exercise 1: Understanding useEffect</h2>
-        <Counter />
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>Exercise 2: Common useEffect Patterns</h2>
-        
-        <h3>Pattern 1: Fetch Data</h3>
-        <button onClick={() => setUserId(userId === 1 ? 2 : 1)}>
-          Switch User ID: {userId}
-        </button>
-        <UserProfile userId={userId} />
-        
-        <h3>Pattern 2: Event Listeners</h3>
-        <WindowSize />
-        
-        <h3>Pattern 3: localStorage Sync</h3>
-        <ThemeToggle />
-      </section>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="posts" element={<Posts />} />
+        <Route path="posts/:postId" element={<PostDetail />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   )
 }
 
