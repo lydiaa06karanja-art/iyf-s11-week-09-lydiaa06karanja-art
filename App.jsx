@@ -5,6 +5,7 @@ import Posts from './pages/Posts'
 import About from './pages/About'
 import PostDetail from './pages/PostDetail'
 import NotFound from './pages/NotFound'
+import Button from './components/Button';
 
 function App() {
   return (
